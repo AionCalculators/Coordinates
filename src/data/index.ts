@@ -24,7 +24,7 @@ export function filterByLevel(nodes: ResourceNode[], skillLevel: number | null):
   }
   // Filter out resources more than 40 levels below the player's skill level
   const minLevel = Math.max(1, skillLevel - 40);
-  return nodes.filter(node => node.level >= minLevel && node.level <= skillLevel + 10);
+  return nodes.filter(node => node.level >= minLevel && node.level <= skillLevel);
 }
 
 // Define map order for each race
