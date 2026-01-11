@@ -58,12 +58,14 @@ function App() {
   }, [allResources, skillLevel]);
 
   const groupedResources = useMemo(() => {
-    return groupByMap(filteredResources);
-  }, [filteredResources]);
+    if (!race) return new Map();
+    return groupByMap(filteredResources, race);
+  }, [filteredResources, race]);
 
   const availableMaps = useMemo(() => {
-    return getUniqueMaps(filteredResources);
-  }, [filteredResources]);
+    if (!race) return [];
+    return getUniqueMaps(filteredResources, race);
+  }, [filteredResources, race]);
 
   const handleRaceSelect = (selectedRace: Race) => {
     setRace(selectedRace);
